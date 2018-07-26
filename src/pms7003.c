@@ -40,7 +40,8 @@ bool pms7003_validate_checksum(unsigned char* frame) {
   for (i = 0; i < PMS7003_FRAME_LEN - 2; i++) {
     checksum += frame[i];
   }
-  LOG(LL_DEBUG, ("PMS7003: checksum result: %d\r\n", checksum == valid_checksum));
+  LOG(LL_DEBUG, ("PMS7003: calculated checksum: %ld", checksum));
+  LOG(LL_DEBUG, ("PMS7003:      valid checksum: %ld", valid_checksum));
   return checksum == valid_checksum;
 }
 

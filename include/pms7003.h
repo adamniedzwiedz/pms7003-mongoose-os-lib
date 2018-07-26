@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 #ifndef PMS7003_H
 #define PMS7003_H

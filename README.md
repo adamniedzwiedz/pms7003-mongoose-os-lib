@@ -9,8 +9,8 @@
 </p>
 
 The sensor can work in two modes:
-- active `pms7003_set_mode(UART_NO, ACTIVE)` , where measure is sent continuously with specified period of time (see the documentation for the details)
-- passive `pms7003_set_mode(UART_NO, PASSIVE)`, where measure is sent only when it was requested `pms7003_request_read(UART_NO)`
+- *active* (the default after power on) `pms7003_set_mode(UART_NO, ACTIVE)` , where measure is sent continuously with specified period of time (see the documentation for the details)
+- *passive* `pms7003_set_mode(UART_NO, PASSIVE)`, where measure is sent only when it was requested `pms7003_request_read(UART_NO)`
 
 Furthermore there is possible to put the sensor into sleep mode `pms7003_sleep(UART_NO)` and then wake it up `pms7003_wakeup(UART_NO)`. In a sleep mode a fan is disabled and the sensor consumes about 4 mA.
 
@@ -70,9 +70,6 @@ enum mgos_app_init_result mgos_app_init(void) {
   if (!mgos_uart_configure(UART_NO, &ucfg)) {
     return MGOS_APP_INIT_ERROR;
   }
-  
-  // set PMS7003 in an active mode
-  pms7003_set_mode(UART_NO, ACTIVE);
 
   // register UART handler (when data received) and enable receiver
   mgos_uart_set_dispatcher(UART_NO, uart_dispatcher, NULL /* arg */);
