@@ -79,6 +79,8 @@ enum mgos_app_init_result mgos_app_init(void) {
 }
 ```
 
+## Debugging
+
 In case of any issues increase the debug level and check debug logs.
 For deep debugging set *debug_level* on **4** which shows also each value in a frame.
 This can be done by adding the following lines to *mos.yml* file
