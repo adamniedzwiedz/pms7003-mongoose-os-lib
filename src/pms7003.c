@@ -27,7 +27,7 @@ unsigned char* pms7003_find_frame(unsigned char* frame, size_t frame_len) {
     LOG(LL_VERBOSE_DEBUG, ("PMS7003: frame[0] = 0x%02x\r\n", frame[0]));
   }
   for (i = 1; i < frame_len; i++) {
-    LOG(LL_VERBOSE_DEBUG, ("PMS7003: frame[%d] = 0x%02x\r\n", i, frame[0]));
+    LOG(LL_VERBOSE_DEBUG, ("PMS7003: frame[%d] = 0x%02x\r\n", i, frame[i]));
     if ((frame[i-1] == PMS7003_FRAME_START1) && (frame[i] == PMS7003_FRAME_START2)) {
       if ((frame_len - i + 1) >= PMS7003_FRAME_LEN) {
           return &frame[i-1];
