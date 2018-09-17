@@ -12,11 +12,11 @@ The sensor can work in two modes:
 - **active** (the default after power on) `pms7003_set_mode(UART_NO, ACTIVE)` , where measure is sent continuously with specified period of time (see the documentation for the details)
 - **passive** `pms7003_set_mode(UART_NO, PASSIVE)`, where measure is sent only when it was requested `pms7003_request_read(UART_NO)`
 
-Furthermore there is possible to put the sensor into sleep mode `pms7003_sleep(UART_NO)` and then wake it up `pms7003_wakeup(UART_NO)`. In a sleep mode a fan is disabled and the sensor consumes about 4 mA.
+Furthermore there is possible to put the sensor into *sleep mode* `pms7003_sleep(UART_NO)` and then *wake it up* `pms7003_wakeup(UART_NO)`. In a sleep mode a fan is disabled and the sensor consumes about 4 mA.
 
 ## Initialization
 
-Since communication with the sensor is done via UART0 the debug messages are sent through UART1 (TX1 => GPIO2 on ESP8266). The library sets `debug.stdout_uart` and `debug.stderr_uart` on UART1.
+Since communication with the sensor is done via *UART0* the debug messages are sent through *UART1* (*TX1 => GPIO2* on ESP8266). The library sets `debug.stdout_uart` and `debug.stderr_uart` on *UART1*.
 
 Typical connection of the sensor.
 
@@ -82,11 +82,11 @@ enum mgos_app_init_result mgos_app_init(void) {
 ## Debugging
 
 In case of any issues increase the debug level and check debug logs.
-For deep debugging set *debug_level* on **4** which shows also each value in a frame.
+For deep debugging set *debug_level* on **3** or **4** which shows also each value in a frame.
 This can be done by adding the following lines to *mos.yml* file
 ```yaml
 config_schema:
   - ["debug.level", 3]
 ```
 
-The default baud rate of the debug port (UART1) is *115.2kbps*
+The default baud rate of the debug port (*UART1*) is **115.2kbps**
